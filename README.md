@@ -7,6 +7,51 @@ This template framework suports both CDK Ver2 and CDK Ver1.
 - AWS CDK Version2 branch: [main, default branch](https://github.com/aws-samples/aws-cdk-project-template-for-devops/tree/main)
 - AWS CDK Version1 branch: [release_cdk_v1, now in maintenance mode](https://github.com/aws-samples/aws-cdk-project-template-for-devops/tree/release_cdk_v1)
 
+## CUR QuickSight Infrastructure
+
+This repository now provisions the data and business intelligence pipeline required to publish AWS Cost and Usage Report insights into Amazon QuickSight. The solution is organised into dedicated stacks so each area of responsibility can be deployed and iterated independently.
+
+### Stacks
+
+- **StorageStack** – Creates the Cost and Usage Report bucket and the partner list bucket, including placeholder folders for `IT info/` and `RLS/` objects.
+- **GlueStack** – Builds the Glue database and either crawlers or static tables for the CUR, IT Info, and RLS datasets depending on the `CreateGlueCrawlers` parameter.
+- **AthenaStack** – Manages Athena workgroups for the QuickSight datasets, including the workgroup dedicated to RLS refresh queries.
+- **QuicksightStack** – Defines Athena data sources, SPICE datasets (CUR and RLS mapping), refresh schedules, and the analysis/dashboard definitions derived from the JSON assets.
+- **ComputeStack** – Deploys the Step Functions state machine and Lambda function that react to new partner list uploads, regenerating the RLS mapping and triggering QuickSight ingestions.
+
+### CloudFormation parameters
+
+All stacks share a consistent set of CloudFormation parameters. Provide values through the CLI (`--parameters`) or by supplying context values (for example in `cdk.json` or via `--context`) that match the parameter names.
+
+| Parameter | Description |
+| --- | --- |
+| `CurExportBucketName` | S3 bucket name that receives the AWS Cost and Usage Report files. |
+| `PartnerListBucketName` | S3 bucket name that stores partner list CSV files. |
+| `GlueDatabaseName` | Glue database used by Athena/QuickSight (default `cur-quicksight`). |
+| `CreateGlueCrawlers` | Whether to create Glue crawlers (`true`) or static tables (`false`). |
+| `CurTableName` | CUR table name when crawlers are disabled (default `data`). |
+| `QuicksightNamespace` | QuickSight namespace that owns resources (default `default`). |
+| `QuicksightAdminUserArn` | QuickSight principal ARN granted admin permissions on datasets, analysis, and dashboard. |
+| `RlsAthenaResultsBucketName` | Bucket used for Step Functions Athena query results (default `aws-athena-query-results-${region}-${account}`). |
+| `RlsAthenaResultsPrefix` | Prefix within the results bucket for temporary RLS outputs (default `cur-rls/`). |
+| `DailyRefreshTimeLocal` | Local time (HH:MM) used for QuickSight dataset refresh schedules. |
+| `Timezone` | IANA timezone corresponding to the refresh time. |
+
+### Deployment
+
+Configure the template to point at the demo configuration and then deploy. Example:
+
+```bash
+export APP_CONFIG=config/app-config-demo.json
+cdk synth
+cdk deploy StorageStack GlueStack AthenaStack QuicksightStack ComputeStack \
+  --parameters CurExportBucketName=my-cur-bucket \
+  --parameters PartnerListBucketName=my-partner-bucket \
+  --parameters QuicksightAdminUserArn=arn:aws:quicksight:us-east-1:123456789012:user/default/admin
+```
+
+Parameters can also be supplied via `cdk.json` context entries using the same keys when automating deployments.
+
 ## Agenda
 
 1. [AWS CDK Introduction](#1-aws-cdk-introduction)

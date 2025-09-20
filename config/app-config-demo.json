@@ -1,39 +1,32 @@
 {
   "Project": {
-    "Name": "HelloWorld",
-    "Stage": "Demo",
-    "Account": "75157*******",
-    "Region": "eu-central-1",
-    "Profile": "cdk-v2"
+    "Name": "CurQuicksight",
+    "Stage": "Dev",
+    "Account": "111111111111",
+    "Region": "us-east-1",
+    "Profile": ""
+  },
+  "Global": {
+    "Parameters": {
+      "CreateGlueCrawlers": "true",
+      "CurTableName": "data"
+    }
   },
   "Stack": {
-    "SampleCfnVpc": {
-      "Name": "SampleCfnVpcStack",
-      "TemplatePath": "infra/stack/template/sample-cfn-vpc.yaml",
-      "Parameters": [
-        {
-          "Key": "VpcName",
-          "Value": "HelloWorldDemo-Vpc"
-        }
-      ]
+    "Storage": {
+      "Name": "StorageStack"
     },
-    "SampleVpcRds": {
-      "Name": "SampleVpcRdsStack",
-      "ClusterIdentifier": "SampeDatabase",
-      "DatabaseName": "helloworld"
+    "Glue": {
+      "Name": "GlueStack"
     },
-    "SampleVpcCloud9": {
-      "Name": "SampleVpcCloud9Stack",
-      "InstanceType": "t3.large",
-      "IamUser": "your-iam-user-id"
+    "Athena": {
+      "Name": "AthenaStack"
     },
-    "SampleVpcEcs": {
-      "Name": "SampleVpcEcsStack",
-      "ClusterName": "SampleCluster",
-      "FilePath": "assets/codes/sample-backend-fastapi",
-      "Memory": 1024,
-      "Cpu": 512,
-      "DesiredCount": 1
+    "Quicksight": {
+      "Name": "QuicksightStack"
+    },
+    "Compute": {
+      "Name": "ComputeStack"
     }
   }
 }
