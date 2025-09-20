@@ -1,0 +1,103 @@
+{
+  "Name": "it_info",
+  "DatabaseName": "cur-quicksight",
+  "Description": "",
+  "Owner": "owner",
+  "CreateTime": "2025-08-30T12:13:07.000Z",
+  "UpdateTime": "2025-08-30T17:56:42.000Z",
+  "Retention": 0,
+  "StorageDescriptor": {
+    "Columns": [
+      {
+        "Name": "linked account id",
+        "Type": "string"
+      },
+      {
+        "Name": "payer account id",
+        "Type": "string"
+      },
+      {
+        "Name": "invoice date",
+        "Type": "string"
+      },
+      {
+        "Name": "discount percent",
+        "Type": "string"
+      },
+      {
+        "Name": "discount usd",
+        "Type": "string"
+      },
+      {
+        "Name": "partner price",
+        "Type": "string"
+      },
+      {
+        "Name": "partner customer code",
+        "Type": "string"
+      },
+      {
+        "Name": "partner name",
+        "Type": "string"
+      }
+    ],
+    "Location": "s3://partner-list/IT info/",
+    "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+    "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+    "Compressed": false,
+    "NumberOfBuckets": -1,
+    "SerdeInfo": {
+      "SerializationLibrary": "org.apache.hadoop.hive.serde2.OpenCSVSerde",
+      "Parameters": {
+        "field.delim": ","
+      }
+    },
+    "BucketColumns": [],
+    "SortColumns": [],
+    "Parameters": {
+      "skip.header.line.count": "1",
+      "sizeKey": "390",
+      "objectCount": "1",
+      "UPDATED_BY_CRAWLER": "partner-list",
+      "recordCount": "3",
+      "CrawlerSchemaSerializerVersion": "1.0",
+      "averageRecordSize": "98",
+      "compressionType": "none",
+      "CrawlerSchemaDeserializerVersion": "1.0",
+      "classification": "csv",
+      "columnsOrdered": "true",
+      "delimiter": ",",
+      "areColumnsQuoted": "false",
+      "CRAWL_RUN_ID": "3bac2bce-53d9-42b7-a580-70f16c056647",
+      "typeOfData": "file"
+    },
+    "StoredAsSubDirectories": false
+  },
+  "PartitionKeys": [],
+  "TableType": "EXTERNAL_TABLE",
+  "Parameters": {
+    "skip.header.line.count": "1",
+    "sizeKey": "390",
+    "objectCount": "1",
+    "UPDATED_BY_CRAWLER": "partner-list",
+    "recordCount": "3",
+    "CrawlerSchemaSerializerVersion": "1.0",
+    "averageRecordSize": "98",
+    "compressionType": "none",
+    "CrawlerSchemaDeserializerVersion": "1.0",
+    "classification": "csv",
+    "columnsOrdered": "true",
+    "delimiter": ",",
+    "areColumnsQuoted": "false",
+    "CRAWL_RUN_ID": "3bac2bce-53d9-42b7-a580-70f16c056647",
+    "typeOfData": "file"
+  },
+  "CreatedBy": "arn:aws:sts::168000259484:assumed-role/AWSGlueServiceRole-partner-list/AWS-Crawler",
+  "IsRegisteredWithLakeFormation": false,
+  "CatalogId": "168000259484",
+  "IsRowFilteringEnabled": false,
+  "VersionId": "4",
+  "CatalogIdentifier": "168000259484",
+  "DatabaseId": "2970c5c9e763401abdf2796901b903d2",
+  "IsMultiDialectView": false
+}

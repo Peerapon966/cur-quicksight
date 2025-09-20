@@ -1,0 +1,705 @@
+{
+  "Name": "data",
+  "DatabaseName": "cur-quicksight",
+  "Description": "",
+  "Owner": "owner",
+  "CreateTime": "2025-06-15T12:36:22.000Z",
+  "UpdateTime": "2025-09-20T00:06:19.000Z",
+  "LastAccessTime": "2025-09-20T00:06:19.000Z",
+  "Retention": 0,
+  "StorageDescriptor": {
+    "Columns": [
+      {
+        "Name": "bill_bill_type",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "bill_billing_entity",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "bill_billing_period_end_date",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "bill_billing_period_start_date",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "bill_invoice_id",
+        "Type": "bigint",
+        "Comment": ""
+      },
+      {
+        "Name": "bill_invoicing_entity",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "bill_payer_account_id",
+        "Type": "bigint",
+        "Comment": ""
+      },
+      {
+        "Name": "bill_payer_account_name",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "cost_category",
+        "Type": "struct<aws_invoice_invoice_unit_name:string>",
+        "Comment": ""
+      },
+      {
+        "Name": "discount",
+        "Type": "struct<distributor_discount:double>",
+        "Comment": ""
+      },
+      {
+        "Name": "discount_bundled_discount",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "discount_total_discount",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "identity_line_item_id",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "identity_time_interval",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_availability_zone",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_blended_cost",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_blended_rate",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_currency_code",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_legal_entity",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_line_item_description",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_line_item_type",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_net_unblended_cost",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_net_unblended_rate",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_normalization_factor",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_normalized_usage_amount",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_operation",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_product_code",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_resource_id",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_tax_type",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_unblended_cost",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_unblended_rate",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_usage_account_id",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_usage_account_name",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_usage_amount",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_usage_end_date",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_usage_start_date",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "line_item_usage_type",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "pricing_currency",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "pricing_lease_contract_length",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "pricing_offering_class",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "pricing_public_on_demand_cost",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "pricing_public_on_demand_rate",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "pricing_purchase_option",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "pricing_rate_code",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "pricing_rate_id",
+        "Type": "bigint",
+        "Comment": ""
+      },
+      {
+        "Name": "pricing_term",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "pricing_unit",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product",
+        "Type": "struct<product_name:string,version:string,region:string,logs_destination:string,servicename:string,group_description:string,group:string,transfer_type:string,capacity_usage:string,availability_zone:string,type:string,volume_api_name:string,provisioned:string,storage_type:string,time_window:string,invocation:string,cache_engine:string,storage_class:string,availability:string,volume_type:string,durability:string,overhead:string,request_type:string,request_description:string,size_flex:string,endpoint_type:string,queue_type:string,message_delivery_order:string,message_delivery_frequency:string,operating_system:string,data_transfer_quota:string,storage:string,vcpu:string,memory:string,instance:string,appcode:string,appplancode:string,event_type:string,description:string,platoclassificationtype:string,max_throughputvolume:string,feature:string,model:string,inference_type:string,provider:string,subservice:string,pricingplan:string,alarm_type:string,engine_code:string,database_engine:string,routing_target:string,routing_type:string,instance_type_family:string,memorytype:string,tenancy:string,entity_type:string,api_type:string,platopagedatatype:string,cputype:string,overage_type:string,counts_against_quota:string,free_overage:string,storage_media:string,deployment_option:string,max_volume_size:string,min_volume_size:string,free_query_types:string,current_generation:string,normalization_size_factor:string,processor_architecture:string,license_model:string,network_performance:string,physical_processor:string,memory_gib:string,ecu:string,physical_cpu:string,gpu_memory:string,gpu:string,physical_gpu:string,platoinstancename:string,clock_speed:string,platoinstancetype:string,instance_name:string,compute_type:string,component:string,max_iopsvolume:string,intel_avx_available:string,marketoption:string,dedicated_ebs_throughput:string,classicnetworkingsupport:string,vpcnetworkingsupport:string,enhanced_networking_supported:string,intel_turbo_available:string,intel_avx2_available:string,capacitystatus:string,pre_installed_sw:string,processor_features:string,certificate_domain_type:string,certificate_type:string,certificate_export_type:string>",
+        "Comment": ""
+      },
+      {
+        "Name": "product_comment",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_fee_code",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_fee_description",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_from_location",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_from_location_type",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_from_region_code",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_instance_family",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_instance_type",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_instancesku",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_location",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_location_type",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_operation",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_pricing_unit",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_product_family",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_region_code",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_servicecode",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_sku",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_to_location",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_to_location_type",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_to_region_code",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "product_usagetype",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_amortized_upfront_cost_for_usage",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_amortized_upfront_fee_for_billing_period",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_availability_zone",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_effective_cost",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_end_time",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_modification_status",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_net_amortized_upfront_cost_for_usage",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_net_amortized_upfront_fee_for_billing_period",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_net_effective_cost",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_net_recurring_fee_for_usage",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_net_unused_amortized_upfront_fee_for_billing_period",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_net_unused_recurring_fee",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_net_upfront_value",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_normalized_units_per_reservation",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_number_of_reservations",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_recurring_fee_for_usage",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_reservation_a_r_n",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_start_time",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_subscription_id",
+        "Type": "bigint",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_total_reserved_normalized_units",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_total_reserved_units",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_units_per_reservation",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_unused_amortized_upfront_fee_for_billing_period",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_unused_normalized_unit_quantity",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_unused_quantity",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_unused_recurring_fee",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "reservation_upfront_value",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "resource_tags",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_amortized_upfront_commitment_for_billing_period",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_end_time",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_instance_type_family",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_net_amortized_upfront_commitment_for_billing_period",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_net_recurring_commitment_for_billing_period",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_net_savings_plan_effective_cost",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_offering_type",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_payment_option",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_purchase_term",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_recurring_commitment_for_billing_period",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_region",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_savings_plan_a_r_n",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_savings_plan_effective_cost",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_savings_plan_rate",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_start_time",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_total_commitment_to_date",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "savings_plan_used_commitment",
+        "Type": "double",
+        "Comment": ""
+      },
+      {
+        "Name": "split_line_item_actual_usage",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "split_line_item_net_split_cost",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "split_line_item_net_unused_cost",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "split_line_item_parent_resource_id",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "split_line_item_public_on_demand_split_cost",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "split_line_item_public_on_demand_unused_cost",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "split_line_item_reserved_usage",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "split_line_item_split_cost",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "split_line_item_split_usage",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "split_line_item_split_usage_ratio",
+        "Type": "string",
+        "Comment": ""
+      },
+      {
+        "Name": "split_line_item_unused_cost",
+        "Type": "string",
+        "Comment": ""
+      }
+    ],
+    "Location": "s3://synnex-cur01-s3/cur/synnex-cur/data/",
+    "InputFormat": "org.apache.hadoop.mapred.TextInputFormat",
+    "OutputFormat": "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat",
+    "Compressed": true,
+    "NumberOfBuckets": -1,
+    "SerdeInfo": {
+      "SerializationLibrary": "org.apache.hadoop.hive.serde2.OpenCSVSerde",
+      "Parameters": {
+        "field.delim": ","
+      }
+    },
+    "BucketColumns": [],
+    "SortColumns": [],
+    "Parameters": {
+      "skip.header.line.count": "1",
+      "sizeKey": "9136926",
+      "objectCount": "5",
+      "UPDATED_BY_CRAWLER": "synnex-cur",
+      "recordCount": "6767",
+      "CrawlerSchemaSerializerVersion": "1.0",
+      "averageRecordSize": "1722",
+      "partition_filtering.enabled": "true",
+      "compressionType": "gzip",
+      "CrawlerSchemaDeserializerVersion": "1.0",
+      "classification": "csv",
+      "columnsOrdered": "true",
+      "delimiter": ",",
+      "areColumnsQuoted": "false",
+      "CRAWL_RUN_ID": "8126f93b-8d89-496c-8bf0-8302797a0b32",
+      "typeOfData": "file"
+    },
+    "StoredAsSubDirectories": false
+  },
+  "PartitionKeys": [
+    {
+      "Name": "billing_period",
+      "Type": "string",
+      "Comment": ""
+    }
+  ],
+  "TableType": "EXTERNAL_TABLE",
+  "Parameters": {
+    "skip.header.line.count": "1",
+    "sizeKey": "9136926",
+    "objectCount": "5",
+    "UPDATED_BY_CRAWLER": "synnex-cur",
+    "recordCount": "6767",
+    "CrawlerSchemaSerializerVersion": "1.0",
+    "averageRecordSize": "1722",
+    "partition_filtering.enabled": "true",
+    "compressionType": "gzip",
+    "CrawlerSchemaDeserializerVersion": "1.0",
+    "classification": "csv",
+    "columnsOrdered": "true",
+    "delimiter": ",",
+    "areColumnsQuoted": "false",
+    "CRAWL_RUN_ID": "8126f93b-8d89-496c-8bf0-8302797a0b32",
+    "typeOfData": "file"
+  },
+  "CreatedBy": "arn:aws:sts::168000259484:assumed-role/AWSGlueServiceRole-CUR-QuickSight/AWS-Crawler",
+  "IsRegisteredWithLakeFormation": false,
+  "CatalogId": "168000259484",
+  "IsRowFilteringEnabled": false,
+  "VersionId": "103",
+  "CatalogIdentifier": "168000259484",
+  "DatabaseId": "2970c5c9e763401abdf2796901b903d2",
+  "IsMultiDialectView": false
+}

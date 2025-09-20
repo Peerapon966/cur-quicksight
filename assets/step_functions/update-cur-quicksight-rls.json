@@ -1,0 +1,164 @@
+{
+  "Comment": "A description of my state machine",
+  "StartAt": "Extract Object Path",
+  "States": {
+    "Extract Object Path": {
+      "Type": "Pass",
+      "Output": {
+        "ObjectPath": "{% $states.input.detail.object.key %}"
+      },
+      "Next": "Choice"
+    },
+    "Choice": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Next": "Query New Partner List",
+          "Condition": "{% $contains($states.input.ObjectPath, /^IT info\\/.*?\\.csv$/) %}"
+        }
+      ],
+      "Default": "Fail"
+    },
+    "Query New Partner List": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::athena:startQueryExecution",
+      "Arguments": {
+        "QueryString": "SELECT DISTINCT \"linked account ID\", \"partner customer code\", \"partner name\", \"partner customer code\" AS GroupName FROM \"cur-quicksight\".it_info",
+        "WorkGroup": "CUR-Quicksight-RLS"
+      },
+      "Next": "Wait",
+      "Assign": {
+        "executionID": "{% $states.result.QueryExecutionId %}"
+      }
+    },
+    "Wait": {
+      "Type": "Wait",
+      "Seconds": 5,
+      "Next": "Athena GetQueryExecution"
+    },
+    "Athena GetQueryExecution": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::athena:getQueryExecution",
+      "Arguments": {
+        "QueryExecutionId": "{% $executionID %}"
+      },
+      "Next": "Is Query Finished",
+      "Output": {
+        "Status": "{% $states.result.QueryExecution.Status.State %}"
+      }
+    },
+    "Is Query Finished": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Next": "Parallel",
+          "Condition": "{% $states.input.Status = \"SUCCEEDED\" %}"
+        }
+      ],
+      "Default": "Wait"
+    },
+    "Parallel": {
+      "Type": "Parallel",
+      "Branches": [
+        {
+          "StartAt": "Get Non-exist Quicksight Group",
+          "States": {
+            "Get Non-exist Quicksight Group": {
+              "Type": "Parallel",
+              "Next": "Pass",
+              "Branches": [
+                {
+                  "StartAt": "ListGroups",
+                  "States": {
+                    "ListGroups": {
+                      "Type": "Task",
+                      "Arguments": {
+                        "AwsAccountId": "168000259484",
+                        "Namespace": "default"
+                      },
+                      "Resource": "arn:aws:states:::aws-sdk:quicksight:listGroups",
+                      "End": true,
+                      "Output": "{% $states.result.GroupList[].GroupName %}"
+                    }
+                  }
+                },
+                {
+                  "StartAt": "Get New Partner List",
+                  "States": {
+                    "Get New Partner List": {
+                      "Type": "Task",
+                      "Resource": "arn:aws:states:::athena:getQueryResults",
+                      "Arguments": {
+                        "MaxResults": 100,
+                        "QueryExecutionId": "{% $executionID %}"
+                      },
+                      "Output": "{% $distinct($states.result.ResultSet.Rows[$.Data[-1].VarCharValue != \"GroupName\"].Data[-1].VarCharValue) %}",
+                      "End": true
+                    }
+                  }
+                }
+              ]
+            },
+            "Pass": {
+              "Type": "Pass",
+              "Next": "Map",
+              "Output": "{% $append([], $filter($states.input[1], function($v) { $not($v in $states.input[0]) })) %}"
+            },
+            "Map": {
+              "Type": "Map",
+              "ItemProcessor": {
+                "ProcessorConfig": {
+                  "Mode": "INLINE"
+                },
+                "StartAt": "Create Group",
+                "States": {
+                  "Create Group": {
+                    "Type": "Task",
+                    "Arguments": {
+                      "AwsAccountId": "168000259484",
+                      "GroupName": "{% $states.input %}",
+                      "Namespace": "default"
+                    },
+                    "Resource": "arn:aws:states:::aws-sdk:quicksight:createGroup",
+                    "End": true
+                  }
+                }
+              },
+              "End": true
+            }
+          }
+        },
+        {
+          "StartAt": "Copy Partner List",
+          "States": {
+            "Copy Partner List": {
+              "Type": "Task",
+              "Arguments": {
+                "Bucket": "partner-list",
+                "CopySource": "{% \"aws-athena-query-results-us-east-1-168000259484/\" & $executionID & \".csv\" %}",
+                "Key": "RLS/dataset-rules.csv"
+              },
+              "Resource": "arn:aws:states:::aws-sdk:s3:copyObject",
+              "Next": "Create Ingestion"
+            },
+            "Create Ingestion": {
+              "Type": "Task",
+              "Arguments": {
+                "AwsAccountId": "168000259484",
+                "DataSetId": "f964c2b3-fc1f-4ac5-87c5-93347e853f51",
+                "IngestionId": "{% $uuid() %}"
+              },
+              "Resource": "arn:aws:states:::aws-sdk:quicksight:createIngestion",
+              "End": true
+            }
+          }
+        }
+      ],
+      "End": true
+    },
+    "Fail": {
+      "Type": "Fail"
+    }
+  },
+  "QueryLanguage": "JSONata"
+}

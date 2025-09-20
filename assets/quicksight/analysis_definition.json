@@ -1,0 +1,1007 @@
+{
+  "DataSetIdentifierDeclarations": [
+    {
+      "Identifier": "synnex-org-usage",
+      "DataSetArn": "arn:aws:quicksight:us-east-1:168000259484:dataset/f135f8e9-8ff0-4224-b130-e007b88ed65e"
+    }
+  ],
+  "Sheets": [
+    {
+      "SheetId": "6bd34145-3b1c-4a9c-887a-4fa1afad64ae",
+      "Name": "Sheet 1",
+      "FilterControls": [
+        {
+          "DateTimePicker": {
+            "FilterControlId": "9ebeeaf1-3892-4628-bbce-5a8e8fdd39d4",
+            "Title": "Date between",
+            "SourceFilterId": "49189103-b902-4597-b71f-7f4ace01ada6",
+            "DisplayOptions": {
+              "TitleOptions": {
+                "Visibility": "VISIBLE",
+                "FontConfiguration": {}
+              },
+              "HelperTextVisibility": "VISIBLE",
+              "DateIconVisibility": "VISIBLE"
+            },
+            "Type": "DATE_RANGE"
+          }
+        },
+        {
+          "Dropdown": {
+            "FilterControlId": "060a2c6a-226c-4e7a-83cd-172dd2593ef3",
+            "Title": "Account name",
+            "SourceFilterId": "022dc1a0-0957-43e2-91e5-88424c534b5d",
+            "DisplayOptions": {
+              "SelectAllOptions": {
+                "Visibility": "VISIBLE"
+              },
+              "TitleOptions": {
+                "Visibility": "VISIBLE",
+                "FontConfiguration": {
+                  "FontSize": {
+                    "Relative": "MEDIUM"
+                  }
+                }
+              },
+              "InfoIconLabelOptions": {
+                "Visibility": "HIDDEN"
+              }
+            },
+            "Type": "MULTI_SELECT"
+          }
+        }
+      ],
+      "Visuals": [
+        {
+          "PieChartVisual": {
+            "VisualId": "f86fd501-d62b-4435-aec0-4f8cf187c198",
+            "Title": {
+              "Visibility": "VISIBLE",
+              "FormatText": {
+                "RichText": "<visual-title>Usage by Service (Charge)</visual-title>"
+              }
+            },
+            "Subtitle": {
+              "Visibility": "VISIBLE"
+            },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "PieChartAggregatedFieldWells": {
+                  "Category": [
+                    {
+                      "CategoricalDimensionField": {
+                        "FieldId": "da24fdcf-d6fc-4ee5-93e3-f1c66dd43cc7.product_code.1.1750596171258",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Service"
+                        }
+                      }
+                    }
+                  ],
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.1.1753843630074",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "End user price"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "SortConfiguration": {
+                "CategorySort": [
+                  {
+                    "FieldSort": {
+                      "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.1.1753843630074",
+                      "Direction": "DESC"
+                    }
+                  }
+                ],
+                "CategoryItemsLimit": {
+                  "OtherCategories": "INCLUDE"
+                },
+                "SmallMultiplesLimitConfiguration": {
+                  "OtherCategories": "INCLUDE"
+                }
+              },
+              "DonutOptions": {
+                "ArcOptions": {
+                  "ArcThickness": "MEDIUM"
+                }
+              },
+              "Legend": {
+                "Visibility": "HIDDEN"
+              },
+              "DataLabels": {
+                "Visibility": "VISIBLE",
+                "Overlap": "DISABLE_OVERLAP"
+              },
+              "Tooltip": {
+                "TooltipVisibility": "VISIBLE",
+                "SelectedTooltipType": "DETAILED",
+                "FieldBasedTooltip": {
+                  "AggregationVisibility": "HIDDEN",
+                  "TooltipTitleType": "PRIMARY_VALUE",
+                  "TooltipFields": [
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "da24fdcf-d6fc-4ee5-93e3-f1c66dd43cc7.product_code.1.1750596171258",
+                        "Visibility": "VISIBLE"
+                      }
+                    },
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.1.1753843630074",
+                        "Visibility": "VISIBLE"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "Actions": [],
+            "ColumnHierarchies": []
+          }
+        },
+        {
+          "BarChartVisual": {
+            "VisualId": "6825c591-bbf7-46e4-9d9d-714d4dfc4af3",
+            "Title": {
+              "Visibility": "VISIBLE",
+              "FormatText": {
+                "RichText": "<visual-title>Total price by account ID</visual-title>"
+              }
+            },
+            "Subtitle": {
+              "Visibility": "VISIBLE"
+            },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "BarChartAggregatedFieldWells": {
+                  "Category": [
+                    {
+                      "CategoricalDimensionField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_usage_account_id.3.1756897275713",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Account ID"
+                        }
+                      }
+                    }
+                  ],
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.4.1756918130855",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "End user price"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        }
+                      }
+                    },
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.partner price.3.1756896664639",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Partner price"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        }
+                      }
+                    },
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "0a086201-43fb-4dd1-80e8-3780d8b0b72a.5.1756918242622",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Discount"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        }
+                      }
+                    }
+                  ],
+                  "Colors": []
+                }
+              },
+              "SortConfiguration": {
+                "CategorySort": [
+                  {
+                    "FieldSort": {
+                      "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.4.1756918130855",
+                      "Direction": "DESC"
+                    }
+                  }
+                ],
+                "CategoryItemsLimit": {
+                  "OtherCategories": "INCLUDE"
+                },
+                "ColorItemsLimit": {
+                  "OtherCategories": "INCLUDE"
+                },
+                "SmallMultiplesLimitConfiguration": {
+                  "OtherCategories": "INCLUDE"
+                }
+              },
+              "Orientation": "VERTICAL",
+              "BarsArrangement": "CLUSTERED",
+              "DataLabels": {
+                "Visibility": "HIDDEN",
+                "Overlap": "DISABLE_OVERLAP"
+              },
+              "Tooltip": {
+                "TooltipVisibility": "VISIBLE",
+                "SelectedTooltipType": "DETAILED",
+                "FieldBasedTooltip": {
+                  "AggregationVisibility": "HIDDEN",
+                  "TooltipTitleType": "PRIMARY_VALUE",
+                  "TooltipFields": [
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.partner price.3.1756896664639",
+                        "Visibility": "VISIBLE"
+                      }
+                    },
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_usage_account_id.3.1756897275713",
+                        "Visibility": "VISIBLE"
+                      }
+                    },
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.4.1756918130855",
+                        "Visibility": "VISIBLE"
+                      }
+                    },
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "0a086201-43fb-4dd1-80e8-3780d8b0b72a.5.1756918242622",
+                        "Visibility": "VISIBLE"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "Actions": [],
+            "ColumnHierarchies": []
+          }
+        },
+        {
+          "BarChartVisual": {
+            "VisualId": "90ef6357-5f9e-4b56-b5d2-ae0dfe0f0422",
+            "Title": {
+              "Visibility": "VISIBLE",
+              "FormatText": {
+                "RichText": "<visual-title>\n  <inline font-size=\"14px\">Total price b</inline>\n  y month\n</visual-title>"
+              }
+            },
+            "Subtitle": {
+              "Visibility": "VISIBLE"
+            },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "BarChartAggregatedFieldWells": {
+                  "Category": [
+                    {
+                      "DateDimensionField": {
+                        "FieldId": "e867d982-dcb8-4459-8dad-6125e0b6fd8b.line_item_usage_start_date.1.1751803860824",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Date"
+                        },
+                        "DateGranularity": "MONTH",
+                        "HierarchyId": "e867d982-dcb8-4459-8dad-6125e0b6fd8b.line_item_usage_start_date.1.1751803860824"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.1.1753843614221",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "End user price"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        }
+                      }
+                    },
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.partner price.2.1757237572754",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Partner price"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        }
+                      }
+                    },
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "0a086201-43fb-4dd1-80e8-3780d8b0b72a.3.1757237577709",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Discount"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        }
+                      }
+                    }
+                  ],
+                  "Colors": []
+                }
+              },
+              "SortConfiguration": {
+                "CategorySort": [
+                  {
+                    "FieldSort": {
+                      "FieldId": "e867d982-dcb8-4459-8dad-6125e0b6fd8b.line_item_usage_start_date.1.1751803860824",
+                      "Direction": "ASC"
+                    }
+                  }
+                ],
+                "CategoryItemsLimit": {
+                  "OtherCategories": "INCLUDE"
+                },
+                "ColorItemsLimit": {
+                  "OtherCategories": "INCLUDE"
+                },
+                "SmallMultiplesLimitConfiguration": {
+                  "OtherCategories": "INCLUDE"
+                }
+              },
+              "Orientation": "VERTICAL",
+              "BarsArrangement": "CLUSTERED",
+              "DataLabels": {
+                "Visibility": "HIDDEN",
+                "Overlap": "DISABLE_OVERLAP"
+              },
+              "Tooltip": {
+                "TooltipVisibility": "VISIBLE",
+                "SelectedTooltipType": "DETAILED",
+                "FieldBasedTooltip": {
+                  "AggregationVisibility": "HIDDEN",
+                  "TooltipTitleType": "PRIMARY_VALUE",
+                  "TooltipFields": [
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "e867d982-dcb8-4459-8dad-6125e0b6fd8b.line_item_usage_start_date.1.1751803860824",
+                        "Visibility": "VISIBLE"
+                      }
+                    },
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.1.1753843614221",
+                        "Visibility": "VISIBLE"
+                      }
+                    },
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.partner price.2.1757237572754",
+                        "Visibility": "VISIBLE"
+                      }
+                    },
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "0a086201-43fb-4dd1-80e8-3780d8b0b72a.3.1757237577709",
+                        "Visibility": "VISIBLE"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "Actions": [],
+            "ColumnHierarchies": [
+              {
+                "DateTimeHierarchy": {
+                  "HierarchyId": "e867d982-dcb8-4459-8dad-6125e0b6fd8b.line_item_usage_start_date.1.1751803860824"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "PivotTableVisual": {
+            "VisualId": "6aaf0186-cd01-421e-850b-b5b91da2bb38",
+            "Title": {
+              "Visibility": "VISIBLE",
+              "FormatText": {
+                "RichText": "<visual-title>Usage By Service (Charge)</visual-title>"
+              }
+            },
+            "Subtitle": {
+              "Visibility": "VISIBLE"
+            },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "PivotTableAggregatedFieldWells": {
+                  "Rows": [
+                    {
+                      "CategoricalDimensionField": {
+                        "FieldId": "da24fdcf-d6fc-4ee5-93e3-f1c66dd43cc7.product_code.1.1750596571876",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Service"
+                        }
+                      }
+                    }
+                  ],
+                  "Columns": [],
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.1.1753843656346",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "End user price"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "SortConfiguration": {
+                "FieldSortOptions": []
+              },
+              "TableOptions": {
+                "ColumnHeaderStyle": {},
+                "CellStyle": {
+                  "Height": 25
+                },
+                "RowFieldNamesStyle": {},
+                "RowAlternateColorOptions": {
+                  "Status": "DISABLED",
+                  "UsePrimaryBackgroundColor": "ENABLED"
+                },
+                "CollapsedRowDimensionsVisibility": "HIDDEN",
+                "RowsLayout": "HIERARCHY"
+              },
+              "TotalOptions": {
+                "RowSubtotalOptions": {
+                  "TotalsVisibility": "VISIBLE",
+                  "CustomLabel": "<<$aws:subtotalDimension>> Subtotal",
+                  "TotalCellStyle": {},
+                  "ValueCellStyle": {},
+                  "MetricHeaderCellStyle": {},
+                  "StyleTargets": [
+                    {
+                      "CellType": "VALUE"
+                    },
+                    {
+                      "CellType": "TOTAL"
+                    },
+                    {
+                      "CellType": "METRIC_HEADER"
+                    }
+                  ]
+                },
+                "RowTotalOptions": {
+                  "TotalsVisibility": "VISIBLE",
+                  "Placement": "AUTO"
+                },
+                "ColumnTotalOptions": {
+                  "Placement": "END"
+                }
+              },
+              "FieldOptions": {
+                "SelectedFieldOptions": [
+                  {
+                    "FieldId": "da24fdcf-d6fc-4ee5-93e3-f1c66dd43cc7.product_code.1.1750596571876",
+                    "Visibility": "VISIBLE"
+                  },
+                  {
+                    "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.1.1753843656346",
+                    "Visibility": "VISIBLE"
+                  }
+                ]
+              }
+            },
+            "Actions": []
+          }
+        },
+        {
+          "BarChartVisual": {
+            "VisualId": "7335976e-55f5-41a1-9568-75fd0c849a9d",
+            "Title": {
+              "Visibility": "VISIBLE",
+              "FormatText": {
+                "RichText": "<visual-title>\n  <inline font-size=\"14px\">Total price by month b</inline>\n  y date\n</visual-title>"
+              }
+            },
+            "Subtitle": {
+              "Visibility": "VISIBLE"
+            },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "BarChartAggregatedFieldWells": {
+                  "Category": [
+                    {
+                      "DateDimensionField": {
+                        "FieldId": "e867d982-dcb8-4459-8dad-6125e0b6fd8b.line_item_usage_start_date.1.1751803841822",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Date"
+                        },
+                        "DateGranularity": "DAY",
+                        "HierarchyId": "e867d982-dcb8-4459-8dad-6125e0b6fd8b.line_item_usage_start_date.1.1751803841822"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    {
+                      "NumericalMeasureField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.1.1753843621825",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "End user price"
+                        },
+                        "AggregationFunction": {
+                          "SimpleNumericalAggregation": "SUM"
+                        }
+                      }
+                    }
+                  ],
+                  "Colors": []
+                }
+              },
+              "SortConfiguration": {
+                "CategorySort": [
+                  {
+                    "FieldSort": {
+                      "FieldId": "e867d982-dcb8-4459-8dad-6125e0b6fd8b.line_item_usage_start_date.1.1751803841822",
+                      "Direction": "ASC"
+                    }
+                  }
+                ],
+                "CategoryItemsLimit": {
+                  "OtherCategories": "INCLUDE"
+                },
+                "ColorItemsLimit": {
+                  "OtherCategories": "INCLUDE"
+                },
+                "SmallMultiplesLimitConfiguration": {
+                  "OtherCategories": "INCLUDE"
+                }
+              },
+              "Orientation": "VERTICAL",
+              "BarsArrangement": "STACKED",
+              "DataLabels": {
+                "Visibility": "HIDDEN",
+                "Overlap": "DISABLE_OVERLAP"
+              },
+              "Tooltip": {
+                "TooltipVisibility": "VISIBLE",
+                "SelectedTooltipType": "DETAILED",
+                "FieldBasedTooltip": {
+                  "AggregationVisibility": "HIDDEN",
+                  "TooltipTitleType": "PRIMARY_VALUE",
+                  "TooltipFields": [
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "e867d982-dcb8-4459-8dad-6125e0b6fd8b.line_item_usage_start_date.1.1751803841822",
+                        "Visibility": "VISIBLE"
+                      }
+                    },
+                    {
+                      "FieldTooltipItem": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_unblended_cost.1.1753843621825",
+                        "Visibility": "VISIBLE"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "Actions": [],
+            "ColumnHierarchies": [
+              {
+                "DateTimeHierarchy": {
+                  "HierarchyId": "e867d982-dcb8-4459-8dad-6125e0b6fd8b.line_item_usage_start_date.1.1751803841822"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "TableVisual": {
+            "VisualId": "6f9ec218-143e-4633-8030-5979fa63024f",
+            "Title": {
+              "Visibility": "VISIBLE"
+            },
+            "Subtitle": {
+              "Visibility": "VISIBLE"
+            },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "TableAggregatedFieldWells": {
+                  "GroupBy": [
+                    {
+                      "CategoricalDimensionField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_usage_account_id.0.1752346269821",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Account ID"
+                        }
+                      }
+                    },
+                    {
+                      "CategoricalDimensionField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.line_item_usage_account_name.4.1756585811328",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Account name"
+                        }
+                      }
+                    },
+                    {
+                      "CategoricalDimensionField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.partner name.1.1752346285843",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Partner name"
+                        }
+                      }
+                    },
+                    {
+                      "CategoricalDimensionField": {
+                        "FieldId": "750ef468-eba2-4a8e-8317-bd944ee3bd07.partner customer code.2.1752346288326",
+                        "Column": {
+                          "DataSetIdentifier": "synnex-org-usage",
+                          "ColumnName": "Partner customer code"
+                        }
+                      }
+                    }
+                  ],
+                  "Values": []
+                }
+              },
+              "SortConfiguration": {}
+            },
+            "Actions": []
+          }
+        }
+      ],
+      "Layouts": [
+        {
+          "Configuration": {
+            "GridLayout": {
+              "Elements": [
+                {
+                  "ElementId": "6825c591-bbf7-46e4-9d9d-714d4dfc4af3",
+                  "ElementType": "VISUAL",
+                  "ColumnIndex": 0,
+                  "ColumnSpan": 17,
+                  "RowIndex": 0,
+                  "RowSpan": 9
+                },
+                {
+                  "ElementId": "f86fd501-d62b-4435-aec0-4f8cf187c198",
+                  "ElementType": "VISUAL",
+                  "ColumnIndex": 17,
+                  "ColumnSpan": 11,
+                  "RowIndex": 0,
+                  "RowSpan": 9
+                },
+                {
+                  "ElementId": "6aaf0186-cd01-421e-850b-b5b91da2bb38",
+                  "ElementType": "VISUAL",
+                  "ColumnIndex": 28,
+                  "ColumnSpan": 8,
+                  "RowIndex": 0,
+                  "RowSpan": 9
+                },
+                {
+                  "ElementId": "90ef6357-5f9e-4b56-b5d2-ae0dfe0f0422",
+                  "ElementType": "VISUAL",
+                  "ColumnIndex": 0,
+                  "ColumnSpan": 17,
+                  "RowIndex": 9,
+                  "RowSpan": 11
+                },
+                {
+                  "ElementId": "6f9ec218-143e-4633-8030-5979fa63024f",
+                  "ElementType": "VISUAL",
+                  "ColumnIndex": 17,
+                  "ColumnSpan": 19,
+                  "RowIndex": 9,
+                  "RowSpan": 9
+                },
+                {
+                  "ElementId": "7335976e-55f5-41a1-9568-75fd0c849a9d",
+                  "ElementType": "VISUAL",
+                  "ColumnIndex": 0,
+                  "ColumnSpan": 17,
+                  "RowIndex": 20,
+                  "RowSpan": 11
+                }
+              ],
+              "CanvasSizeOptions": {
+                "ScreenCanvasSizeOptions": {
+                  "ResizeOption": "FIXED",
+                  "OptimizedViewPortWidth": "1600px"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "SheetControlLayouts": [
+        {
+          "Configuration": {
+            "GridLayout": {
+              "Elements": [
+                {
+                  "ElementId": "9ebeeaf1-3892-4628-bbce-5a8e8fdd39d4",
+                  "ElementType": "FILTER_CONTROL",
+                  "ColumnIndex": 0,
+                  "ColumnSpan": 4,
+                  "RowIndex": 0,
+                  "RowSpan": 1
+                },
+                {
+                  "ElementId": "060a2c6a-226c-4e7a-83cd-172dd2593ef3",
+                  "ElementType": "FILTER_CONTROL",
+                  "ColumnIndex": 4,
+                  "ColumnSpan": 3,
+                  "RowIndex": 0,
+                  "RowSpan": 1
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "ContentType": "INTERACTIVE"
+    }
+  ],
+  "CalculatedFields": [
+    {
+      "DataSetIdentifier": "synnex-org-usage",
+      "Name": "Discount",
+      "Expression": "{End user price} - {Partner price}"
+    },
+    {
+      "DataSetIdentifier": "synnex-org-usage",
+      "Name": "Partner's discount",
+      "Expression": "{End user price} * {750ef468-eba2-4a8e-8317-bd944ee3bd07.total_discount_percent_earned} / 10"
+    }
+  ],
+  "ParameterDeclarations": [],
+  "FilterGroups": [
+    {
+      "FilterGroupId": "21923532-0fe6-4f83-9a84-5f750c73c380",
+      "Filters": [
+        {
+          "CategoryFilter": {
+            "FilterId": "022dc1a0-0957-43e2-91e5-88424c534b5d",
+            "Column": {
+              "DataSetIdentifier": "synnex-org-usage",
+              "ColumnName": "Account name"
+            },
+            "Configuration": {
+              "CustomFilterListConfiguration": {
+                "MatchOperator": "CONTAINS",
+                "CategoryValues": [
+                  "AI Trust One"
+                ],
+                "NullOption": "NON_NULLS_ONLY"
+              }
+            }
+          }
+        }
+      ],
+      "ScopeConfiguration": {
+        "SelectedSheets": {
+          "SheetVisualScopingConfigurations": [
+            {
+              "SheetId": "6bd34145-3b1c-4a9c-887a-4fa1afad64ae",
+              "Scope": "ALL_VISUALS"
+            }
+          ]
+        }
+      },
+      "Status": "ENABLED",
+      "CrossDataset": "SINGLE_DATASET"
+    },
+    {
+      "FilterGroupId": "c4f7a69b-c0cd-40c8-af9d-1f2dfa84966d",
+      "Filters": [
+        {
+          "CategoryFilter": {
+            "FilterId": "199caf95-bb8e-40d1-9863-16507ef649b3",
+            "Column": {
+              "DataSetIdentifier": "synnex-org-usage",
+              "ColumnName": "Charge type"
+            },
+            "Configuration": {
+              "FilterListConfiguration": {
+                "MatchOperator": "CONTAINS",
+                "CategoryValues": [
+                  "Fee",
+                  "Tax",
+                  "Usage",
+                  "Credit"
+                ],
+                "NullOption": "NON_NULLS_ONLY"
+              }
+            }
+          }
+        }
+      ],
+      "ScopeConfiguration": {
+        "SelectedSheets": {
+          "SheetVisualScopingConfigurations": [
+            {
+              "SheetId": "6bd34145-3b1c-4a9c-887a-4fa1afad64ae",
+              "Scope": "SELECTED_VISUALS",
+              "VisualIds": [
+                "90ef6357-5f9e-4b56-b5d2-ae0dfe0f0422",
+                "6aaf0186-cd01-421e-850b-b5b91da2bb38",
+                "7335976e-55f5-41a1-9568-75fd0c849a9d",
+                "f86fd501-d62b-4435-aec0-4f8cf187c198"
+              ]
+            }
+          ]
+        }
+      },
+      "Status": "ENABLED",
+      "CrossDataset": "SINGLE_DATASET"
+    },
+    {
+      "FilterGroupId": "54c4d564-9925-4316-ac39-64ad4b54a2ee",
+      "Filters": [
+        {
+          "CategoryFilter": {
+            "FilterId": "801610ae-b50a-4d03-a035-6dd363c37b48",
+            "Column": {
+              "DataSetIdentifier": "synnex-org-usage",
+              "ColumnName": "Charge type"
+            },
+            "Configuration": {
+              "FilterListConfiguration": {
+                "MatchOperator": "CONTAINS",
+                "CategoryValues": [
+                  "Fee",
+                  "Usage",
+                  "Credit"
+                ],
+                "NullOption": "NON_NULLS_ONLY"
+              }
+            }
+          }
+        }
+      ],
+      "ScopeConfiguration": {
+        "SelectedSheets": {
+          "SheetVisualScopingConfigurations": [
+            {
+              "SheetId": "6bd34145-3b1c-4a9c-887a-4fa1afad64ae",
+              "Scope": "SELECTED_VISUALS",
+              "VisualIds": [
+                "6825c591-bbf7-46e4-9d9d-714d4dfc4af3",
+                "90ef6357-5f9e-4b56-b5d2-ae0dfe0f0422",
+                "6aaf0186-cd01-421e-850b-b5b91da2bb38",
+                "7335976e-55f5-41a1-9568-75fd0c849a9d",
+                "f86fd501-d62b-4435-aec0-4f8cf187c198"
+              ]
+            }
+          ]
+        }
+      },
+      "Status": "ENABLED",
+      "CrossDataset": "SINGLE_DATASET"
+    },
+    {
+      "FilterGroupId": "ff3677ce-e849-4fe2-9ce2-ca7b34ebada7",
+      "Filters": [
+        {
+          "TimeRangeFilter": {
+            "FilterId": "49189103-b902-4597-b71f-7f4ace01ada6",
+            "Column": {
+              "DataSetIdentifier": "synnex-org-usage",
+              "ColumnName": "Date"
+            },
+            "IncludeMinimum": true,
+            "IncludeMaximum": false,
+            "RangeMinimumValue": {
+              "StaticValue": "2025-05-01T00:00:00+00:00"
+            },
+            "RangeMaximumValue": {
+              "StaticValue": "2025-09-08T00:00:00+00:00"
+            },
+            "NullOption": "NON_NULLS_ONLY",
+            "TimeGranularity": "DAY"
+          }
+        }
+      ],
+      "ScopeConfiguration": {
+        "SelectedSheets": {
+          "SheetVisualScopingConfigurations": [
+            {
+              "SheetId": "6bd34145-3b1c-4a9c-887a-4fa1afad64ae",
+              "Scope": "ALL_VISUALS"
+            }
+          ]
+        }
+      },
+      "Status": "ENABLED",
+      "CrossDataset": "SINGLE_DATASET"
+    },
+    {
+      "FilterGroupId": "801770df-90a9-435f-ba8d-d48351be477a",
+      "Filters": [
+        {
+          "CategoryFilter": {
+            "FilterId": "313ceff5-3d6f-4eec-9f00-508081225dd1",
+            "Column": {
+              "DataSetIdentifier": "synnex-org-usage",
+              "ColumnName": "Account ID"
+            },
+            "Configuration": {
+              "FilterListConfiguration": {
+                "MatchOperator": "CONTAINS",
+                "SelectAllOptions": "FILTER_ALL_VALUES",
+                "NullOption": "NON_NULLS_ONLY"
+              }
+            }
+          }
+        }
+      ],
+      "ScopeConfiguration": {
+        "AllSheets": {}
+      },
+      "Status": "ENABLED",
+      "CrossDataset": "ALL_DATASETS"
+    }
+  ],
+  "AnalysisDefaults": {
+    "DefaultNewSheetConfiguration": {
+      "InteractiveLayoutConfiguration": {
+        "Grid": {
+          "CanvasSizeOptions": {
+            "ScreenCanvasSizeOptions": {
+              "ResizeOption": "FIXED",
+              "OptimizedViewPortWidth": "1600px"
+            }
+          }
+        }
+      },
+      "SheetContentType": "INTERACTIVE"
+    }
+  },
+  "Options": {
+    "WeekStart": "SUNDAY",
+    "QBusinessInsightsStatus": "DISABLED",
+    "ExcludedDataSetArns": [],
+    "CustomActionDefaults": {
+      "highlightOperation": {
+        "Trigger": "DATA_POINT_CLICK"
+      }
+    }
+  },
+  "QueryExecutionOptions": {
+    "QueryExecutionMode": "AUTO"
+  }
+}
